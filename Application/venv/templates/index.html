@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>PFE</title>
+   <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}" />
+  <!-- Bootstrap Core CSS -->
+  <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{{url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{url_for('static', filename='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet" type="text/css">
+  <link href="{{url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{{url_for('static', filename='css/stylish-portfolio.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/jquery.dm-uploader.min.css')}}" rel="stylesheet">
+
+  <!-- hna l drop zone -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/dropzone.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+  <script src="{{ url_for('static', filename='javascripts/dropzone.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='javascripts/wavesurfer.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='javascripts/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='javascripts/app.js')}}"></script>
+
+
+</head>
+
+<body id="page-top">
+
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#" style="color:rgba(0, 0, 255, 0.5);">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper" >
+    <ul class="sidebar-nav" >
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Menu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#propo">À propos de</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#upload">Upload</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#domain">Choix Possible</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#contact">Contactez nous</a>
+      </li>
+    </ul>
+  </nav>
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Projet fin d'étude</h1>
+      <h3 class="mb-5">
+        <em>Automatic CV/Resumé analysis Using Natural Language Processing</em>
+      </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#propo">DÉBUT</a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+<!-- Callout -->
+  <section class="callout" id="propo">
+    <div class="container text-center">
+      <h3 class="mx-auto mb-5" style="font-size: 285%;">À propos de l'application </h3>
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+                <button style=" margin: 1%;" type="button" class="btn btn-success list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><h5>Site web</h5></button>
+                <button style=" margin: 1%;" type="button" class="btn btn-warning list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><h5>Upload</h5></button>
+                <button style=" margin: 1%;" class="btn btn-danger list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages"><h5>Notre Modèle</h5></button>
+                <a style=" margin: 1%;" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"><h5>Modèle spaCy</h5></a>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list" style="font-family:verdana; margin-top: -5%; font-size: 105%; text-align:center; background-color:#a6ddb273;" ><p  >Notre site web est basé sur parsing de CV “extraction les informations de CV”, désigne le processus de conversion d’un CV ou d’un profil de réseaux social non structuré (qu’on appelle « de forme libre ») en un format structuré consultable et pouvant être intégré dans tout système logiciel. Le parsing de CV élimine la nécessité de saisie manuelle de données, permet aux candidats de déposer leur candidature depuis n’importe quel terminal tout en offrant de meilleures résultats de recherche.</p>
+                <p> Pour démarrer l'application :</p>
+                <p> - Démarrer le serveur Apach Tika</p>
+                <p> - Aller sur e lien : http://127.0.0.1:2020/ </p>
+                <p> - Uploider fichier Zip contient les CVs</p>
+                <p> - Choisie méthode de recherche convenable</p></div>
+              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{url_for('static', filename='img/Etaps1.png')}}" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4 style="color: black;">Étape 1</h4>
+                        <h5 style="color: black;">Sélectionner les CV (doit être en format word PDF docs)</h5>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{url_for('static', filename='img/Etaps2.png')}}" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4 style="color: black;">Étape 2</h4>
+                        <h5 style="color: black;">Compresser les CV au format zip</h5>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{url_for('static', filename='img/Etaps3.png')}}" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4 style="color: black;">Étape 3</h4>
+                        <h5 style="color: black;">Upload les CV soit en click  ou bien drop les fichiers sur le cadre</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list" style="font-family:verdana; margin-top: 2.5%; font-size: 105%; text-align:center; background-color:#e77b7b73;" ><p>Notre modèle est basé sur des méthodes de recherche et Regex pour extracte l'information</p>
+                  <p>Condition :</p>
+                  <p>Taille de fichier Zip doit pas être long . max 20 Mo</p>
+                  <p>le traitement normalement reste 3 à 4 minutes</p>
+                  <p>le nom de fichier doit être obligatoirement  sous ce format Nom_Prenom</p>
+              </div>
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list" style="font-family:verdana; margin-top: -2%; font-size: 105%; text-align:center; background-color:#7bd8e773;"><p> Nous avons utilisé principalement SpaCy. SpaCy est une jeune librairie (2015) qui offre des modèles pré-entraînés pour diverses applications, y compris la reconnaissance d’entités nommées. SpaCy est la principale alternative à NLTK (Natural Language Tool Kit), la librairie historique pour le TAL avec Python, et propose de nombreuses innovations et options de visualisation qui sont très intéressantes.</p>
+                  <p>Condition :</p>
+                  <p>Taille fichier Zip doit pas etre long depasse pas 20 Mo</p>
+                  <p>le traitement nomralment reste 2  a 3 minute</p>
+                  <p>donne pas toujours une bonne résultat</p></div>
+            </div>
+          </div>
+        </div>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#upload" ">ETAPE 1</a>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+  <!-- Upload -->
+  <section class="content-section bg-light" id="upload">
+    <div class="container text-center">
+      <h3 class="text-secondary mb-0">Étape 1</h3>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2>Upload le fichier zip qui contient les CV</h2>
+            <br><br>
+
+            <!-- mn hna kaybda -->
+
+            <form action="/upload" method="post"  class="dropzone" style=" height:250px;" enctype="multipart/form-data">
+
+            </form>
+
+            <!--
+            hadi mgadaa kon 3rfte ha ki nkrbe zone o sf
+          	<div class="form-group">
+            <div class="custom-file">
+            <input oninput="filesize(this);" type="file" class="custom-file-input" id="customFile" name="FILE">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+        	</div>
+          	-->
+          	{% if erreur == 1 %}
+            <script>window.alert("erreur fichier not uploid");</script>
+            <div class=" container alert alert-danger" role="alert" >
+            Achrif 7te b3da fil zip fin kaynin CV
+            </div>
+            {% endif %}
+			<!--
+			 /*hada khso style*/	
+            <form method="POST"  action="/process" class="dropzone" enctype="multipart/form-data">
+            <div class="fallback">
+            	<input oninput="filesize(this);" type="file" class="custom-file-input" id="customFile" name="FILE" style="height: 280px;">
+            </div>
+            </form>
+			
+			/* hada khdam */
+          	<div class="custom-file">
+              <input oninput="filesize(this);" type="file" class="custom-file-input" id="customFile" name="FILE">
+              <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            -->
+
+             <br>
+             <br>
+          <a class="btn btn-dark btn-xl js-scroll-trigger"  href="#domain" type="submit">Next</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+  <!-- Domain -->
+  <section class="domain content-section bg-primary text-white text-center" id="domain">
+    <div class="container">
+      <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0" style="margin-left: 27%;">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Choix Par Compétences
+                </button>
+              </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <form method="POST" action="/Choix_Skills" enctype="multipart/form-data">
+              <div class="card-body">
+                  <label>
+                    <input type="text" id="ski" name="skills1" placeholder="Compétence 1" required>
+                    <input type="text" id="ski" name="skills2" placeholder="Compétence 2" >
+                    <input type="text" id="ski" name="skills3" placeholder="Compétences 3" >
+                    <input type="text" id="ski" name="skills4" placeholder="Compétence 4" >
+                  </label>
+                  <br>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="Rad" id="inlineRadio1" value="op2" required>
+                      <label class="form-check-label" for="inlineRadio1"><p style="color:black;margin-top: 15%;">Modéle spaCy</p></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="Rad" id="inlineRadio2" value="op1" required>
+                        <label class="form-check-label" for="inlineRadio2"><p style="color:black;margin-top: 15%;">Notre méthode</p></label>
+                    </div>
+                  <br>
+                  <button type="reset" class="btn btn-dark btn-xl"><i class="fa fa-eraser"></i> Clear</button>
+                  <button type="submit" class="btn btn-primary btn-xl"><i class="fa fa-database"></i>PROCESS</button>
+              </div>
+                </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0" style="margin-left: 27%;">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Choix par domaine
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <form method="POST" action="/Choix_Domain" enctype="multipart/form-data">
+              <div class="card-body">
+                  <div class="form-group">
+                    <select name="domain1"  class="custom-select"  required style="Width:25%; height:80px; margin-right:2%; margin-left:2%;">
+                      <option value="">Domain 1</option>
+                      <option value="academic">Academic</option>
+                      <option value="adobe software">Adobe software</option>
+                      <option value="aerial">Aerial</option>
+                      <option value="agricultural">Agricultural</option>
+                      <option value="analys">Analys</option>
+                      <option value="art">Art</option>
+                      <option value="audio">Audio</option>
+                      <option value="automotive">Automotive</option>
+                      <option value="biologie">Biologie</option>
+                      <option value="chemical">Chemical</option>
+                      <option value="coaching">Coaching</option>
+                      <option value="economic">Economic</option>
+                      <option value="electric">Electric</option>
+                      <option value="engineer">Engineer</option>
+                      <option value="enterprise">Enterprise</option>
+                      <option value="body">Fitness</option>
+                      <option value="food">Food</option>
+                      <option value="geolog">Geolog</option>
+                      <option value="graphic">Graphic</option>
+                      <option value="health">Health</option>
+                      <option value="industrial">Industrial</option>
+                      <option value="informatique">Informatique</option>
+                      <option value="literary">Literary</option>
+                      <option value="management">Management</option>
+                      <option value="math">Math</option>
+                      <option value="mecanique">Mecanique</option>
+                      <option value="mobile hardware">Mobile Hardware</option>
+                    </select>
+                     <select name="domain2"  class="custom-select"  required style="Width:25%; height:80px; margin-right:2%; margin-left:2%;">
+                      <option value="">Domain 2</option>
+                      <option value="academic">Academic</option>
+                      <option value="adobe software">Adobe software</option>
+                      <option value="aerial">Aerial</option>
+                      <option value="agricultural">Agricultural</option>
+                      <option value="analys">Analys</option>
+                      <option value="art">Art</option>
+                      <option value="audio">Audio</option>
+                      <option value="automotive">Automotive</option>
+                      <option value="biologie">Biologie</option>
+                      <option value="chemical">Chemical</option>
+                      <option value="coaching">Coaching</option>
+                      <option value="economic">Economic</option>
+                      <option value="electric">Electric</option>
+                      <option value="engineer">Engineer</option>
+                      <option value="enterprise">Enterprise</option>
+                      <option value="body">Fitness</option>
+                      <option value="food">Food</option>
+                      <option value="geolog">Geolog</option>
+                      <option value="graphic">Graphic</option>
+                      <option value="health">Health</option>
+                      <option value="industrial">Industrial</option>
+                      <option value="informatique">Informatique</option>
+                      <option value="literary">Literary</option>
+                      <option value="management">Management</option>
+                      <option value="math">Math</option>
+                      <option value="mecanique">Mecanique</option>
+                      <option value="mobile hardware">Mobile Hardware</option>
+                    </select>
+                     <select name="domain3"  class="custom-select"  required style="Width:25%; height:80px; margin-right:2%; margin-left:2%;">
+                      <option value="">Domain 3</option>
+                      <option value="academic">Academic</option>
+                      <option value="adobe software">Adobe software</option>
+                      <option value="aerial">Aerial</option>
+                      <option value="agricultural">Agricultural</option>
+                      <option value="analys">Analys</option>
+                      <option value="art">Art</option>
+                      <option value="audio">Audio</option>
+                      <option value="automotive">Automotive</option>
+                      <option value="biologie">Biologie</option>
+                      <option value="chemical">Chemical</option>
+                      <option value="coaching">Coaching</option>
+                      <option value="economic">Economic</option>
+                      <option value="electric">Electric</option>
+                      <option value="engineer">Engineer</option>
+                      <option value="enterprise">Enterprise</option>
+                      <option value="body">Fitness</option>
+                      <option value="food">Food</option>
+                      <option value="geolog">Geolog</option>
+                      <option value="graphic">Graphic</option>
+                      <option value="health">Health</option>
+                      <option value="industrial">Industrial</option>
+                      <option value="informatique">Informatique</option>
+                      <option value="literary">Literary</option>
+                      <option value="management">Management</option>
+                      <option value="math">Math</option>
+                      <option value="mecanique">Mecanique</option>
+                      <option value="mobile hardware">Mobile Hardware</option>
+                    </select>
+                      <br>
+                      <br>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Rad" id="inlineRadio1" value="op2" required>
+                          <label class="form-check-label" for="inlineRadio1"><p style="color:black;margin-top: 15%;">Modéle spaCy</p></label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="Rad" id="inlineRadio2" value="op1" required>
+                            <label class="form-check-label" for="inlineRadio2"><p style="color:black;margin-top: 15%;">Notre méthode</p></label>
+                        </div>
+                      <br>
+                      <br>
+                      <button type="reset" class="btn btn-dark btn-xl"><i class="fa fa-eraser"></i> Clear</button>
+                      <button type="submit" class="btn btn-primary btn-xl"><i class="fa fa-database"></i>PROCESS</button>
+                  </div>
+              </div>
+                </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0" style="margin-left: 27%;">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Choix par Cluster
+                </button>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <form method="POST" action="/Choix_Cluster" enctype="multipart/form-data">
+              <div class="card-body">
+                  <select name="cluster"  class="custom-select"  required style="Width:25%; height:80px; margin-right:2%; margin-left:2%;">
+                      <option value="">Choix Cluster</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">Default</option>
+                  </select>
+                  <br>
+                  <br>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="Rad" id="inlineRadio1" value="op2" required>
+                      <label class="form-check-label" for="inlineRadio1"><p style="color:black;margin-top: 15%;">Modéle spaCy</p></label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="Rad" id="inlineRadio2" value="op1" required>
+                      <label class="form-check-label" for="inlineRadio2"><p style="color:black;margin-top: 15%;">Notre méthode</p></label>
+                  </div>
+                  <br>
+                  <br>
+                  <button type="reset" class="btn btn-dark btn-xl"><i class="fa fa-eraser"></i> Clear</button>
+                  <button type="submit" class="btn btn-primary btn-xl"><i class="fa fa-database"></i>PROCESS</button>
+              </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+</form>
+
+
+  <!-- controle size of file -->
+  {% block script %}
+    <script>
+      function filesize(elem){
+        document.cookie = `filesize=${elem.files[0].size}`
+      }
+    </script>
+  {% endblock %}
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{url_for('static', filename='js/stylish-portfolio.min.js')}}"></script>
+
+  <!-- chi twacha njrbhom dyawle upload -->
+  <script src="{{url_for('static', filename='https://code.jquery.com/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="{{url_for('static', filename='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js')}}" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <script src="{{url_for('static', filename='js/jquery.dm-uploader.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/demo-ui.js')}}"></script>
+  <script src="{{url_for('static', filename='js/demo-config.js')}}"></script>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+</body>
+
+</html>
