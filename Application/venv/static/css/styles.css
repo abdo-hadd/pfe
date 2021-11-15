@@ -1,0 +1,54 @@
+/* 
+	A couple styles to make the demo page look good
+ */
+
+.row {
+	margin-bottom: 1rem;
+}
+[class*="col-"] {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+hr {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+#files {
+    overflow-y: scroll !important;
+    min-height: 320px;
+}
+@media (min-width: 768px) {
+	#files {
+		min-height: 0;
+	}
+}
+#debug {
+	overflow-y: scroll !important;
+	height: 180px;	
+}
+
+.dm-uploader {
+	border: 0.25rem dashed #A5A5C7;
+	text-align: center;
+}
+.dm-uploader.active {
+	border-color: red;
+
+	border-style: solid;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+  background-color: #ccffe6;
+}
